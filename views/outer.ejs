@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('head.ejs') %>
+    
+</head>
+<body>
+    playing as <%=color%>
+    <div id="board1" style="width: 400px"></div>
+    <label>Status:</label>
+<div id="status"></div>
+<label>FEN:</label>
+<div id="fen"></div>
+<label>PGN:</label>
+<div id="pgn"></div>
+<script> let playercolor='<%=color%>';
+    console.log("playing as"+playercolor)</script>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <%- include ('head.ejs') %>
+    </head>
+    <body>
+        <h2>Game code</h2>
+        <input type="text" id="codeInput">
+        <button id="createGame">Create game</button>
+        <button id="joinGame">Join game</button>
+        <div style="color: red" id="errorMessage"></div>
+
+        <script>
+        $(document).ready(function() {
+            $('#createGame').on('click', function() {
+                console.log('Clicked Create game button');
+                window.location.replace('/white?code=' + encodeURIComponent($('#codeInput').val()));
+            });
+
+            $('#joinGame').on('click', function() {
+                console.log('Clicked Join game button');
+                window.location.replace('/black?code=' + encodeURIComponent($('#codeInput').val()));
+            });
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') == 'invalidCode') {
+                $('#errorMessage').text('Invalid invite code');
+            }
+        });
+        </script>
+    </body>
+</html>
